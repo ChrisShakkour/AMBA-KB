@@ -1,0 +1,353 @@
+[
+  {
+    "path": "00-overview/DVI0010A_AMBA1_intro_1996.pdf",
+    "doc": "DVI0010",
+    "version": "1.0",
+    "title": "Introduction To AMBA",
+    "page": "https://developer.arm.com/documentation/dvi0010/a",
+    "url": "https://documentation-service.arm.com/static/5f106ce80daa596235e81425",
+    "sha256": "8e46dfbdda5b674e1b6fed99bbb5daf3c1e07d0ce18770ef7e696314b06368e8"
+  },
+  {
+    "path": "00-overview/IHI0011A_AMBA2_spec_ASB_AHB_APB.pdf",
+    "doc": "IHI0011",
+    "version": "2.0 (A)",
+    "title": "AMBA Specification (Rev 2.0)",
+    "page": "https://developer.arm.com/documentation/ihi0011/a",
+    "url": "https://documentation-service.arm.com/static/642569a2314e245d086bc87e",
+    "sha256": "3e2876c47662461726b97f92e6680e6488ebac231a1efecf005a34e6179bdecf"
+  },
+  {
+    "path": "00-overview/IHI0082A_ATP.pdf",
+    "doc": "IHI0082",
+    "version": "A",
+    "title": "AMBA Adaptive Traffic Profiles Specification",
+    "page": "https://developer.arm.com/documentation/ihi0082/a",
+    "url": "https://documentation-service.arm.com/static/5f914f6ef86e16515cdc2b62",
+    "sha256": "615230788b02bee78f401338a0bf75d8b22d8e0e4d2884142300baba1b51c9ef"
+  },
+  {
+    "path": "00-overview/LTA_110303_v1.0_Arm_System_Architectures.pdf",
+    "doc": "110303",
+    "version": "1.0",
+    "title": "Learn the architecture - Arm System Architectures",
+    "page": "https://developer.arm.com/documentation/110303/0100",
+    "url": "https://documentation-service.arm.com/static/682ae34f0aae2a5d8f045749",
+    "sha256": "8cd81d95b9a813340e736b681afd5dfb99ce3a8e0d21ba7194b9459f0ea262f7"
+  },
+  {
+    "path": "10-apb/IHI0024B_APB3.pdf",
+    "doc": "IHI0024",
+    "version": "B",
+    "title": "AMBA APB Protocol Specification Version B",
+    "page": "https://developer.arm.com/documentation/ihi0024/b",
+    "url": "https://documentation-service.arm.com/static/64257d8379edab6d64fb6f68",
+    "sha256": "a7c1a0144ced4597439fcfb92e30f6c88bf19897e01f83b2785e993e35714ccb"
+  },
+  {
+    "path": "10-apb/IHI0024C_APB4.pdf",
+    "doc": "IHI0024",
+    "version": "C",
+    "title": "AMBA APB Protocol Specification Version C",
+    "page": "https://developer.arm.com/documentation/ihi0024/c",
+    "url": "https://documentation-service.arm.com/static/64257f64314e245d086bc8b7",
+    "sha256": "d430df535cc67a118ae54d6356b7a6f73eec12b8ffc03cdf8a2c5f26a29751df"
+  },
+  {
+    "path": "10-apb/IHI0024E_APB5.pdf",
+    "doc": "IHI0024",
+    "version": "E",
+    "title": "AMBA APB Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0024/e",
+    "url": "https://documentation-service.arm.com/static/63fe2c1356ea36189d4e79f3",
+    "sha256": "c1e0fbc73d7bc61f1fdb63de75e78607ea989c1bffc8da0476bca3a84e40f204"
+  },
+  {
+    "path": "10-apb/archive/IHI0024D_APB5.pdf",
+    "doc": "IHI0024",
+    "version": "D",
+    "title": "AMBA APB Protocol Specification Version D",
+    "page": "https://developer.arm.com/documentation/ihi0024/d",
+    "url": "https://documentation-service.arm.com/static/60d5b505677cf7536a55c245",
+    "sha256": "f80a2ab428f0a11852e6a6b0bea9e35c39632637301b4bcf5600589d23df14ac"
+  },
+  {
+    "path": "20-ahb/IHI0033A_AHB-Lite.pdf",
+    "doc": "IHI0033",
+    "version": "A",
+    "title": "AMBA 3 AHB-Lite Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0033/a",
+    "url": "https://documentation-service.arm.com/static/64258237314e245d086bc8c6",
+    "sha256": "827d6432bace745ade3bbcbb138bbf4512363da3c45495cf9218c22f83ff262e"
+  },
+  {
+    "path": "20-ahb/IHI0033Bb_AHB5_AHB-Lite.pdf",
+    "doc": "IHI0033",
+    "version": "B.b",
+    "title": "Arm AMBA 5 AHB Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0033/bb",
+    "url": "https://documentation-service.arm.com/static/5f91607cf86e16515cdc3b4b",
+    "sha256": "4068e9720d8294b5c983231f562ac9ca56df8038bc91bd06f0e51498567d9f1f"
+  },
+  {
+    "path": "20-ahb/IHI0033C_AHB5.pdf",
+    "doc": "IHI0033",
+    "version": "C",
+    "title": "AMBA AHB Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0033/c",
+    "url": "https://documentation-service.arm.com/static/6141bf0d674a052ae36ca811",
+    "sha256": "2ba2920e050e1d9f6a1b728dfef85e66eb400a3c29d774b086b7de71c768f724"
+  },
+  {
+    "path": "30-axi/IHI0022Hc_AXI3_AXI4_AXI5_ACE.pdf",
+    "doc": "IHI0022",
+    "version": "H.c",
+    "title": "AMBA AXI and ACE Protocol Specification Version H.c",
+    "page": "https://developer.arm.com/documentation/ihi0022/hc",
+    "url": "https://documentation-service.arm.com/static/602a9df190ee6824a1e02b98",
+    "sha256": "5d57888094cab17ad385eb1651ada736babd6c61333fcd479cb37e6e08f77102"
+  },
+  {
+    "path": "30-axi/IHI0022L_AXI.pdf",
+    "doc": "IHI0022",
+    "version": "L",
+    "title": "AMBA AXI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0022/l",
+    "url": "https://documentation-service.arm.com/static/68b03beb01ae952d9559f9eb",
+    "sha256": "20aa5f946df5fa97053689d705959b1ef6a90a88f845fa3b686a53311f680ac1"
+  },
+  {
+    "path": "30-axi/IHI0051A_AXI4-Stream.pdf",
+    "doc": "IHI0051",
+    "version": "A",
+    "title": "AMBA 4 AXI4-Stream Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0051/a",
+    "url": "https://documentation-service.arm.com/static/642583d7314e245d086bc8c9",
+    "sha256": "5eab83e14d3006997372f88370309a3d5cf70b1583c63476e436f2c09b787c82"
+  },
+  {
+    "path": "30-axi/IHI0051B_AXI-Stream.pdf",
+    "doc": "IHI0051",
+    "version": "B",
+    "title": "AMBA AXI-Stream Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0051/b",
+    "url": "https://documentation-service.arm.com/static/64819f1516f0f201aa6b963c",
+    "sha256": "477e232cd3dfb7b5e38370f8e6fb692361cb2321727e936a137c671a45acd2d0"
+  },
+  {
+    "path": "30-axi/LTA_102202_v3.0_Intro_AXI.pdf",
+    "doc": "102202",
+    "version": "3.0",
+    "title": "Learn the architecture - An introduction to AMBA AXI",
+    "page": "https://developer.arm.com/documentation/102202/0300",
+    "url": "https://documentation-service.arm.com/static/6800e9e95b1a8c5a27aa1a59",
+    "sha256": "8c22fadf85eff9bfdea1298bb513d3b10779e1d4319f99d7337192285d8676e4"
+  },
+  {
+    "path": "30-axi/archive/IHI0022B_AXI3.pdf",
+    "doc": "IHI0022",
+    "version": "B",
+    "title": "AMBA AXI Protocol Specification Version B",
+    "page": "https://developer.arm.com/documentation/ihi0022/b",
+    "url": "https://documentation-service.arm.com/static/5f915920f86e16515cdc3342",
+    "sha256": "742037ee73eda65c1705de1a475c3632c2b736847da94a6151b5030022b90b19"
+  },
+  {
+    "path": "30-axi/archive/IHI0022C_AXI3_AXI4.pdf",
+    "doc": "IHI0022",
+    "version": "C",
+    "title": "AMBA AXI Protocol Specification Version C",
+    "page": "https://developer.arm.com/documentation/ihi0022/c",
+    "url": "https://documentation-service.arm.com/static/64256e84314e245d086bc88f",
+    "sha256": "3e59b3ad69aaa3e1a177b2b7c6902a70d1be34175a53f8a6011ed72b06fe46df"
+  },
+  {
+    "path": "30-axi/archive/IHI0022Fb_AXI_ACE.pdf",
+    "doc": "IHI0022",
+    "version": "F.b",
+    "title": "AMBA AXI and ACE Protocol Specification Version F.b",
+    "page": "https://developer.arm.com/documentation/ihi0022/fb",
+    "url": "https://documentation-service.arm.com/static/5f915bbcf86e16515cdc3b23",
+    "sha256": "7ceed43623b3bc9baf8ea3717bbcf68494dec1f6efd065b38a77c7241e7dc19d"
+  },
+  {
+    "path": "30-axi/archive/IHI0022G_AXI_ACE.pdf",
+    "doc": "IHI0022",
+    "version": "G",
+    "title": "AMBA AXI and ACE Protocol Specification Version G",
+    "page": "https://developer.arm.com/documentation/ihi0022/g",
+    "url": "https://documentation-service.arm.com/static/5f915905f86e16515cdc333b",
+    "sha256": "c434d2fbd333d76e5a2788016e0f3bb6b1cc70134b5b98b275bee083099ebb55"
+  },
+  {
+    "path": "30-axi/archive/IHI0022J_AXI.pdf",
+    "doc": "IHI0022",
+    "version": "J",
+    "title": "AMBA AXI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0022/j",
+    "url": "https://documentation-service.arm.com/static/63ff0ebd56ea36189d4e7ee7",
+    "sha256": "47b464b6ac5f8947129d1bc421eb078972e256db9465796926f4a1fc33ef2f98"
+  },
+  {
+    "path": "40-coherent/IHI0050H_CHI.pdf",
+    "doc": "IHI0050",
+    "version": "H",
+    "title": "AMBA CHI Architecture Specification",
+    "page": "https://developer.arm.com/documentation/ihi0050/h",
+    "url": "https://documentation-service.arm.com/static/69df590612ab715369d31af4",
+    "sha256": "f8ccee128e5893e0858a8a460af69d548274da1d7f3a672dada601abcbc647d3"
+  },
+  {
+    "path": "40-coherent/IHI0098B_CHI_C2C.pdf",
+    "doc": "IHI0098",
+    "version": "B",
+    "title": "AMBA CHI Chip-to-Chip (C2C) Architecture Specification",
+    "page": "https://developer.arm.com/documentation/ihi0098/b",
+    "url": "https://documentation-service.arm.com/static/69cbbaf03fb3b839f93e2ec2",
+    "sha256": "7c5866efd34e81a3aaeba9ee8db05482b921af05079ee93796ee30b63b773410"
+  },
+  {
+    "path": "40-coherent/LTA_102407_v1.2_Intro_CHI.pdf",
+    "doc": "102407",
+    "version": "1.2",
+    "title": "Learn the architecture - Introducing AMBA CHI",
+    "page": "https://developer.arm.com/documentation/102407/0102",
+    "url": "https://documentation-service.arm.com/static/68590853961937560be90eb2",
+    "sha256": "2c0a5f6e94bf0471d0172a8c58135613e9ad00e83b8a98eb9b4f242781b61512"
+  },
+  {
+    "path": "40-coherent/archive/IHI0050Ec_CHI.pdf",
+    "doc": "IHI0050",
+    "version": "E.c",
+    "title": "AMBA 5 CHI Architecture Specification",
+    "page": "https://developer.arm.com/documentation/ihi0050/ec",
+    "url": "https://documentation-service.arm.com/static/63341ee5da191e7fe057d04b",
+    "sha256": "4e4a5314ba0d6e069a83f1a0b74f2f80e04629f0c1319c89685718bf42d60dd7"
+  },
+  {
+    "path": "40-coherent/archive/IHI0050G_CHI.pdf",
+    "doc": "IHI0050",
+    "version": "G",
+    "title": "AMBA CHI Architecture Specification",
+    "page": "https://developer.arm.com/documentation/ihi0050/g",
+    "url": "https://documentation-service.arm.com/static/69e73291379d3e7aaa33ab54",
+    "sha256": "3a687894c28638c7be58cf6ef0ddc60e77009f505e9e87a3a697a3080f1d40b3"
+  },
+  {
+    "path": "50-trace-debug/IHI0032C_ATB.pdf",
+    "doc": "IHI0032",
+    "version": "C",
+    "title": "AMBA ATB Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0032/c",
+    "url": "https://documentation-service.arm.com/static/61b0bea883e60c5c768e4c6a",
+    "sha256": "7c863f73368eabb32f7a50094c63fd7eb793c2d4025bbdf4036b97f5ec495ed2"
+  },
+  {
+    "path": "50-trace-debug/archive/IHI0032B_ATB.pdf",
+    "doc": "IHI0032",
+    "version": "B",
+    "title": "AMBA 4 ATB Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0032/b",
+    "url": "https://documentation-service.arm.com/static/5fb7ec16d77dd807b9a80cb6",
+    "sha256": "d529c71402a02fdf65524564f298ece6bd94c12d06fc0afdd07d2b6955473b4b"
+  },
+  {
+    "path": "60-system-mmu/IHI0088J_DTI.pdf",
+    "doc": "IHI0088",
+    "version": "J",
+    "title": "AMBA DTI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0088/j",
+    "url": "https://documentation-service.arm.com/static/69cd3daac1586b7c59b1c8af",
+    "sha256": "139b7883ab5b7ae4b383eeccaa1e2575fc1ad71fc118c95c9194c3e232fcebbd"
+  },
+  {
+    "path": "60-system-mmu/IHI0089E_LTI.pdf",
+    "doc": "IHI0089",
+    "version": "E",
+    "title": "AMBA LTI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0089/e",
+    "url": "https://documentation-service.arm.com/static/69cd3e493fb3b839f93e3178",
+    "sha256": "e86a28960943a183dc792c7205dd4e6242235ec0608a8bc8f53ca19d47ea40c9"
+  },
+  {
+    "path": "60-system-mmu/archive/IHI0088E_DTI.pdf",
+    "doc": "IHI0088",
+    "version": "E.a",
+    "title": "AMBA DTI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0088/e-a",
+    "url": "https://documentation-service.arm.com/static/60ddf202677cf7536a55cd55",
+    "sha256": "f69699f7a995e4086358323c32e7aefb3dc8104694cee1300f36f0ec79f35a3f"
+  },
+  {
+    "path": "60-system-mmu/archive/IHI0088Ec_DTI.pdf",
+    "doc": "IHI0088",
+    "version": "E.c",
+    "title": "AMBA DTI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0088/ec",
+    "url": "https://documentation-service.arm.com/static/65e83b84a97073311e216fc1",
+    "sha256": "df4627cd1fb8e7f2782014e286715176c870743637c3fb4d4b7aaf5dff6c643b"
+  },
+  {
+    "path": "60-system-mmu/archive/IHI0089D_LTI.pdf",
+    "doc": "IHI0089",
+    "version": "D",
+    "title": "AMBA LTI Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0089/d",
+    "url": "https://documentation-service.arm.com/static/68ada17f46f4553a6890bc55",
+    "sha256": "a5124162522045955c7d5a49d59b31eb63acef3f0e8b20cae5122006ac4304b3"
+  },
+  {
+    "path": "70-specialized/IHI0079D_CXS.pdf",
+    "doc": "IHI0079",
+    "version": "D",
+    "title": "AMBA CXS Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0079/d",
+    "url": "https://documentation-service.arm.com/static/68da8cd1bd7cab51328c2998",
+    "sha256": "f6ddc2e6665d398da112619d8e37007a66ed5e4670bc275297ae4a4e7bd9e48d"
+  },
+  {
+    "path": "70-specialized/IHI0083Ab_GFB.pdf",
+    "doc": "IHI0083",
+    "version": "A.b",
+    "title": "AMBA Generic Flash Bus Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0083/ab",
+    "url": "https://documentation-service.arm.com/static/6294e5a131ea212bb662277e",
+    "sha256": "f8cb1a06d29094a3566f008fb287a1d5fe0ae7c3f1cb6ef66c17ae6759d180a7"
+  },
+  {
+    "path": "70-specialized/archive/IHI0079B_CXS.pdf",
+    "doc": "IHI0079",
+    "version": "B",
+    "title": "AMBA CXS Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0079/b",
+    "url": "https://documentation-service.arm.com/static/60002aa43f22832ff1d6871b",
+    "sha256": "13e7f2bbe195e1e9ed858fb1425eea80b4089566b7c95c628f4e893bb30a0e20"
+  },
+  {
+    "path": "70-specialized/archive/IHI0083A_GFB.pdf",
+    "doc": "IHI0083",
+    "version": "A",
+    "title": "AMBA Generic Flash Bus Protocol Specification",
+    "page": "https://developer.arm.com/documentation/ihi0083/a",
+    "url": "https://documentation-service.arm.com/static/5f915d9ff86e16515cdc3b30",
+    "sha256": "9371f4057ec605f0a8459d247578a573fa7276a7c521626319c455c703be24f2"
+  },
+  {
+    "path": "80-low-power/IHI0068D_LPI.pdf",
+    "doc": "IHI0068",
+    "version": "D",
+    "title": "AMBA Low Power Interface Specification",
+    "page": "https://developer.arm.com/documentation/ihi0068/d",
+    "url": "https://documentation-service.arm.com/static/617a637283e60c5c768e2241",
+    "sha256": "0afd5730eb708841ebab0c7268ed54ef35e89588524e295d01a21818761b9c94"
+  },
+  {
+    "path": "80-low-power/archive/IHI0068C_LPI.pdf",
+    "doc": "IHI0068",
+    "version": "C",
+    "title": "AMBA Low Power Interface Specification",
+    "page": "https://developer.arm.com/documentation/ihi0068/c",
+    "url": "https://documentation-service.arm.com/static/5f915e69f86e16515cdc3b3e",
+    "sha256": "f21f45bb0ce67fd4996eee3f384be4f9b945b3cc16e096e219ed7a29185066b3"
+  }
+]

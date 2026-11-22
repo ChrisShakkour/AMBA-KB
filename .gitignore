@@ -1,0 +1,8 @@
+# Obsidian per-user UI state
+wiki/.obsidian/workspace.json
+__pycache__/
+*.pyc
+
+# Arm source documents: download with tools/download_sources.py
+raw/**/*.pdf
+raw/text/
