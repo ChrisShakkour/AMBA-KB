@@ -190,6 +190,7 @@ These three Arm Technical Reference Manuals are now part of the source set ([Sou
 - [Low power and wake-up](low-power-and-wakeup.md)
 - [Streaming interfaces](streaming-interfaces.md)
 - [Debug trace: ATB](debug-trace-atb.md)
+- [Networks-on-chip (NoC)](networks-on-chip.md)
 
 ## Sources
 

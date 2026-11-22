@@ -80,6 +80,7 @@ For the full list of bridge and converter types, with real component examples, s
 ## Related articles
 
 - [Bridges, adapters and converters](bridges-and-adapters.md)
+- [Networks-on-chip (NoC)](networks-on-chip.md)
 - [Terminology and roles](terminology-and-roles.md)
 - [Handshakes and flow control](handshakes-and-flow-control.md)
 - [Bursts, sizes and alignment](bursts-sizes-and-alignment.md)

@@ -18,6 +18,7 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols, written for 
 | Article | One-line description |
 |---|---|
 | [Interconnect, topology and bridges](interconnect-topology-and-bridges.md) | Shared buses with arbiters, multi-layer AHB, AXI point-to-point fabrics, CHI rings and meshes, bridges, and the 1 KB/4 KB decode rules |
+| [Networks-on-chip (NoC)](networks-on-chip.md) | How NoC ideas (network interfaces, flits, routing, credits, virtual channels, deadlock freedom) map to AXI and CHI, plus open-source NoC generators (FlooNoC, Constellation, ESP, OpenPiton, ProNoC) and simulators (BookSim 2, Garnet, Noxim) |
 | [Bridges, adapters and converters](bridges-and-adapters.md) | The spec rules every bridge must follow, and a catalogue of real modules: register endpoints, protocol bridges, upsizers/downsizers, clock-domain bridges, register slices, ID and burst shapers, trace and debug (Arm CMSDK, NIC-400, CoreSight, plus vendor and open-source libraries) |
 | [Handshakes and flow control](handshakes-and-flow-control.md) | PREADY/HREADY wait states, the VALID/READY rules, and credit-based flow control (CHI, CXS, AXI5 credited, C2C) |
 | [Transfer phases and pipelining](transfer-phases-and-pipelining.md) | APB SETUP/ACCESS, AHB address/data overlap, AXI's five independent channels, and CHI's protocol/network/link layers |
