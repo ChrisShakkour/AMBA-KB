@@ -7,7 +7,7 @@ were checked against its title page.
 **The PDFs are not stored in this repository.** Download them into this folder with:
 
 ```
-python tools/download_sources.py            # all 39 documents (~69 MB)
+python tools/download_sources.py            # all 42 documents (~75 MB)
 python tools/download_sources.py CHI AXI    # only matching documents
 ```
 
@@ -95,6 +95,14 @@ The folder structure is kept with empty `.gitkeep` files.
 | [70-specialized/archive/IHI0083A_GFB.pdf](https://documentation-service.arm.com/static/5f915d9ff86e16515cdc3b30) | AMBA Generic Flash Bus Protocol Spec | A | Jul 2018 |
 | [80-low-power/IHI0068D_LPI.pdf](https://documentation-service.arm.com/static/617a637283e60c5c768e2241) | AMBA Low Power Interface Spec | **D (latest)** | Sep 2021 |
 | [80-low-power/archive/IHI0068C_LPI.pdf](https://documentation-service.arm.com/static/5f915e69f86e16515cdc3b3e) | AMBA Low Power Interface Spec | C | Sep 2016 |
+
+### Arm IP product manuals (added 2026-11-22)
+
+| File | Document | Issue | Date |
+|---|---|---|---|
+| [90-ip-products/DDI0479C_CMSDK_TRM.pdf](https://documentation-service.arm.com/static/5e8f1c777100066a414f770b) | Cortex-M System Design Kit TRM (r1p0) | C | Apr 2013 |
+| [90-ip-products/DDI0475J_NIC-400_TRM.pdf](https://documentation-service.arm.com/static/5f5a411f235b3560a01eb5ce) | CoreLink NIC-400 Network Interconnect TRM (r1p2) | J | Nov 2017 |
+| [90-ip-products/DDI0480F_CoreSight_SoC-400_TRM.pdf](https://documentation-service.arm.com/static/5f873a82405d955c5176fb41) | CoreSight SoC-400 TRM (r3p1) | F | Sep 2013 |
 
 ## 3. Known gaps
 

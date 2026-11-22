@@ -38,6 +38,9 @@ A **bridge** is a translator at the border between two road systems, for example
 - A node may have **several interfaces**, or **replicated channels** on one interface, for bandwidth. Requests can be spread over interfaces with an address-striping hash such as XOR-ing masked address bits. Advertising that hash lets snoop filters target the right interface (CHI-H §B13.7).
 
 ### Bridges
+
+For the full list of bridge and converter types, with real component examples, see [Bridges, adapters and converters](bridges-and-adapters.md).
+
 - **AHB/ASB→APB bridge**: appears as *one* Subordinate on the system bus, latches address, data and control, and does a second-level decode to create the `PSELx` signals (AMBA2 §1.7, §5.4).
 - **Error mapping** across bridges (APB-E §3.4.3; APB-B §2.3.3):
   - AXI→APB: `PSLVERR` → `RRESP`/`BRESP` = SLVERR.
@@ -76,6 +79,7 @@ A **bridge** is a translator at the border between two road systems, for example
 
 ## Related articles
 
+- [Bridges, adapters and converters](bridges-and-adapters.md)
 - [Terminology and roles](terminology-and-roles.md)
 - [Handshakes and flow control](handshakes-and-flow-control.md)
 - [Bursts, sizes and alignment](bursts-sizes-and-alignment.md)

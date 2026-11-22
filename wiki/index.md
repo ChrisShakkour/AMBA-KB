@@ -2,7 +2,7 @@
 
 A concept-organised wiki of Arm's AMBA on-chip interface protocols, written for **junior RTL design engineers**. Each article explains one concept across *all* the protocols that use it: what it is, what the sources say, where they agree, and where (and why) they disagree.
 
-- **Sources:** 39 official Arm documents, downloaded into [`../raw/`](../raw/) with `python tools/download_sources.py` (they are not stored in the repository). Codes such as `AXI-L §A5.3` are explained in the [Source key](sources.md). The latest AXI (Issue L) and CHI (Issue H) specifications were read in full.
+- **Sources:** 39 official Arm specifications and learning guides, plus 3 Arm IP product manuals, downloaded into [`../raw/`](../raw/) with `python tools/download_sources.py` (they are not stored in the repository). Codes such as `AXI-L §A5.3` are explained in the [Source key](sources.md). The latest AXI (Issue L) and CHI (Issue H) specifications were read in full.
 - **Disagreements:** every article has a "Where the sources disagree" section. All 71 are collected in [Protocol evolution and version differences](protocol-evolution-and-versions.md#register-of-disagreements-across-the-sources).
 
 ## Articles
@@ -18,6 +18,7 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols, written for 
 | Article | One-line description |
 |---|---|
 | [Interconnect, topology and bridges](interconnect-topology-and-bridges.md) | Shared buses with arbiters, multi-layer AHB, AXI point-to-point fabrics, CHI rings and meshes, bridges, and the 1 KB/4 KB decode rules |
+| [Bridges, adapters and converters](bridges-and-adapters.md) | The spec rules every bridge must follow, and a catalogue of real modules: register endpoints, protocol bridges, upsizers/downsizers, clock-domain bridges, register slices, ID and burst shapers, trace and debug (Arm CMSDK, NIC-400, CoreSight, plus vendor and open-source libraries) |
 | [Handshakes and flow control](handshakes-and-flow-control.md) | PREADY/HREADY wait states, the VALID/READY rules, and credit-based flow control (CHI, CXS, AXI5 credited, C2C) |
 | [Transfer phases and pipelining](transfer-phases-and-pipelining.md) | APB SETUP/ACCESS, AHB address/data overlap, AXI's five independent channels, and CHI's protocol/network/link layers |
 | [Bursts, sizes, alignment and write strobes](bursts-sizes-and-alignment.md) | INCR/WRAP/FIXED bursts, size and length encodings, wrap maths, narrow/unaligned transfers, PSTRB/HWSTRB/WSTRB, Lite subsets |

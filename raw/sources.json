@@ -349,5 +349,32 @@
     "page": "https://developer.arm.com/documentation/ihi0068/c",
     "url": "https://documentation-service.arm.com/static/5f915e69f86e16515cdc3b3e",
     "sha256": "f21f45bb0ce67fd4996eee3f384be4f9b945b3cc16e096e219ed7a29185066b3"
+  },
+  {
+    "path": "90-ip-products/DDI0479C_CMSDK_TRM.pdf",
+    "doc": "DDI0479",
+    "version": "C",
+    "title": "Cortex-M System Design Kit Technical Reference Manual (r1p0)",
+    "page": "https://developer.arm.com/documentation/ddi0479/c",
+    "url": "https://documentation-service.arm.com/static/5e8f1c777100066a414f770b",
+    "sha256": "113d8d3b7b25f7581142dbb773ad35fdb3dcf24f334e83b4fb0f7606e7a9e67c"
+  },
+  {
+    "path": "90-ip-products/DDI0475J_NIC-400_TRM.pdf",
+    "doc": "DDI0475",
+    "version": "J",
+    "title": "CoreLink NIC-400 Network Interconnect Technical Reference Manual (r1p2)",
+    "page": "https://developer.arm.com/documentation/ddi0475/j",
+    "url": "https://documentation-service.arm.com/static/5f5a411f235b3560a01eb5ce",
+    "sha256": "3ad830273b9bca1ae7caada73b3519a44ab740cff9d577e792a79bf03feea8ca"
+  },
+  {
+    "path": "90-ip-products/DDI0480F_CoreSight_SoC-400_TRM.pdf",
+    "doc": "DDI0480",
+    "version": "F",
+    "title": "CoreSight SoC-400 Technical Reference Manual (r3p1)",
+    "page": "https://developer.arm.com/documentation/ddi0480/f",
+    "url": "https://documentation-service.arm.com/static/5f873a82405d955c5176fb41",
+    "sha256": "309074fa99ce9b65b6888a41fe5402cd2a98df6930133f2f396014bc9aaf8344"
   }
 ]

@@ -2,7 +2,7 @@
 
 Every article in this wiki cites sources with a short **code** (for example `APB-E §3.4` means *AMBA APB Protocol Specification, Issue E, section 3.4*). This page maps each code to its Arm documentation page and to its local file in [`../raw/`](../raw/). The PDFs are not stored in the repository: run `python tools/download_sources.py` from the repository root to download them (see [`../raw/SOURCES.md`](../raw/SOURCES.md)).
 
-All sources are official, Non-Confidential Arm documents. They were downloaded from `documentation-service.arm.com` on 2026-11-21. For the full download catalog, see [`../raw/SOURCES.md`](../raw/SOURCES.md).
+All sources are official, Non-Confidential Arm documents: 39 specifications and learning guides, plus 3 IP product manuals. They were downloaded from `documentation-service.arm.com` on 2026-11-21. For the full download catalog, see [`../raw/SOURCES.md`](../raw/SOURCES.md).
 
 ## Specifications
 
@@ -54,6 +54,18 @@ All sources are official, Non-Confidential Arm documents. They were downloaded f
 | G-SYS | Learn the architecture: Arm System Architectures (110303) | 1.0, May 2025 | [Arm page](https://developer.arm.com/documentation/110303/0100) · [local pdf](../raw/00-overview/LTA_110303_v1.0_Arm_System_Architectures.pdf) |
 
 > **Which source wins?** When a spec and a learning guide disagree, the **specification is normative** (it is the rule). The guides are written to teach and are sometimes out of date. When two issues of the same spec disagree, the **newer issue** describes the current protocol. The older one still describes the older protocol version that existing IP may implement.
+
+## Arm IP product manuals (not specifications)
+
+These Technical Reference Manuals describe Arm **products** (component libraries), not protocols. The wiki cites them only in [Bridges, adapters and converters](bridges-and-adapters.md), as examples of how Arm builds bridges and converters. Where a manual and a specification differ, the specification is the rule.
+
+| Code | Document | Issue / date | File |
+|---|---|---|---|
+| CMSDK-C | Cortex-M System Design Kit Technical Reference Manual, r1p0 (DDI 0479) | C, 19 Apr 2013 (Issue D also exists) | [Arm page](https://developer.arm.com/documentation/ddi0479/c) · [local pdf](../raw/90-ip-products/DDI0479C_CMSDK_TRM.pdf) |
+| NIC400-J | CoreLink NIC-400 Network Interconnect Technical Reference Manual, r1p2 (DDI 0475) | J, 27 Nov 2017 | [Arm page](https://developer.arm.com/documentation/ddi0475/j) · [local pdf](../raw/90-ip-products/DDI0475J_NIC-400_TRM.pdf) |
+| CSSOC-F | CoreSight SoC-400 Technical Reference Manual, r3p1 (DDI 0480) | F, 26 Sep 2013 (Issue G also exists) | [Arm page](https://developer.arm.com/documentation/ddi0480/f) · [local pdf](../raw/90-ip-products/DDI0480F_CoreSight_SoC-400_TRM.pdf) |
+
+Reading depth: the component lists, the introduction of every bridge and converter section, and NIC-400 ch. 1–2 were read. Register descriptions, signal tables and timing diagrams were not read.
 
 ## How the sources were read
 

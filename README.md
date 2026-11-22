@@ -4,7 +4,7 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols (APB, AHB, AX
 
 - **Start here:** [wiki/index.md](wiki/index.md)
 - **Source key:** [wiki/sources.md](wiki/sources.md) explains citation codes such as `AXI-L §A5.3`.
-- **Sources:** the wiki is built from 39 official Arm documents. They are **not stored in this repository**. [raw/SOURCES.md](raw/SOURCES.md) lists each one with its issue, date and download link, and the `raw/` folder structure is kept so the files land where the wiki's links expect them.
+- **Sources:** the wiki is built from 42 official Arm documents (39 specifications and learning guides, plus 3 IP product manuals). They are **not stored in this repository**. [raw/SOURCES.md](raw/SOURCES.md) lists each one with its issue, date and download link, and the `raw/` folder structure is kept so the files land where the wiki's links expect them.
 - **Tools:**
   - `tools/download_sources.py` downloads the documents into `raw/` and checks each against the SHA-256 in [raw/sources.json](raw/sources.json).
   - `tools/check_arm_versions.py` checks Arm's site for newer issues.
@@ -12,7 +12,7 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols (APB, AHB, AX
 ## Getting the source documents
 
 ```
-python tools/download_sources.py            # all 39 documents (~69 MB)
+python tools/download_sources.py            # all 42 documents (~75 MB)
 python tools/download_sources.py CHI AXI    # only matching documents
 ```
 
