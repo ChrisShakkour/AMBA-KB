@@ -87,6 +87,7 @@ The rules below are quoted from AXI-L §A2.3 and repeated almost word for word i
 
 ## Related articles
 
+- [APB interface hub](interface-apb.md), [AHB interface hub](interface-ahb.md), [AXI interface hub](interface-axi.md)
 - [Transfer phases and pipelining](transfer-phases-and-pipelining.md)
 - [Low power and wake-up](low-power-and-wakeup.md) (FLITPEND, PENDING, link activation)
 - [QoS and traffic modelling](qos-and-traffic-modelling.md) (resource planes, retry)

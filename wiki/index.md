@@ -14,6 +14,15 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols, written for 
 | [Terminology and roles](terminology-and-roles.md) | Manager/Subordinate vs Requester/Completer vs Transmitter/Receiver (and old master/slave), plus transfer, beat, burst, flit and other size words |
 | [Protocol evolution and version differences](protocol-evolution-and-versions.md) | Timeline of every generation and issue, per-protocol change tables, and the register of all 71 disagreements |
 
+### Interface hubs (one page per interface)
+Each hub lists every signal of one interface (width, source, which version or property enables it), a transfer in brief, a rules checklist with citations, and SystemVerilog protocol assertions. Every row links to the concept article that explains it.
+
+| Article | One-line description |
+|---|---|
+| [APB interface hub](interface-apb.md) | All APB2–APB5 signals with version presence, the SETUP/ACCESS state machine, 10 key rules and APB assertions |
+| [AHB interface hub](interface-ahb.md) | All AHB-Lite/AHB5 signals with Manager/Subordinate presence and defaults, pipelining and the two-cycle ERROR, 12 key rules and Manager/Subordinate assertions |
+| [AXI interface hub](interface-axi.md) | The five channels' core signals, the optional AXI5 signal groups and their enabling properties, 10 key rules and AXI assertions |
+
 ### How data moves
 | Article | One-line description |
 |---|---|

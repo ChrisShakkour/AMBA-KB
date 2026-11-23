@@ -91,6 +91,7 @@ State machine (APB-E §4.1; AMBA2 §5.2.1):
 
 ## Related articles
 
+- [APB interface hub](interface-apb.md), [AHB interface hub](interface-ahb.md), [AXI interface hub](interface-axi.md)
 - [Handshakes and flow control](handshakes-and-flow-control.md)
 - [Bursts, sizes and alignment](bursts-sizes-and-alignment.md)
 - [Transaction IDs and ordering](transaction-ids-and-ordering.md)
