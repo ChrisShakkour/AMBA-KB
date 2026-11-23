@@ -67,6 +67,31 @@ Each group is switched on by the property shown, which comes from AXI-L Table B2
 | Broadcast tie-offs | `BROADCASTATOMIC`, `BROADCASTSHAREABLE`, `BROADCASTCACHEMAINT` … | static inputs | [Properties: broadcast pins](interface-properties-and-user-signals.md#broadcast-pins-tie-offs-that-switch-features-off) |
 | Parity | `*CHK` signals | `Check_Type` | [Parity and RAS](interface-protection-parity-and-ras.md#parity-check-signals) |
 
+## AXI4-Lite and AXI5-Lite profile
+
+AXI4-Lite (AXI-Hc §B1.1) keeps the five channels with only these signals: `ACLK`, `ARESETn`; `AWVALID`, `AWREADY`, `AWADDR`, `AWPROT`; `WVALID`, `WREADY`, `WDATA`, `WSTRB`; `BVALID`, `BREADY`, `BRESP`; `ARVALID`, `ARREADY`, `ARADDR`, `ARPROT`; `RVALID`, `RREADY`, `RDATA`, `RRESP` (AXI-Hc Table B1-1). Its key rules:
+- "All transactions are of burst length 1", so AxLEN, AxSIZE, AxBURST, AxLOCK, AxCACHE, WLAST and RLAST are absent and take fixed meanings (length 1, full bus width, Normal, Non-modifiable and Non-bufferable, LAST = 1).
+- "AXI4-Lite supports a data bus width of 32-bit or 64-bit."
+- "Exclusive accesses are not supported", and "The EXOKAY response is not supported".
+
+In AXI-L, AXI5-Lite is not a separate protocol but an AXI5 interface with constrained properties (AXI-L §B2.1.5). See [Bursts: "Lite" and "regular" subsets](bursts-sizes-and-alignment.md#lite-and-regular-subsets) and [Bridges: AXI4 → AXI4-Lite](bridges-and-adapters.md#2-protocol-bridges).
+
+## ACE additions
+
+ACE adds signals to three AXI channels, three snoop channels and two acknowledge signals (AXI-Hc ch. D2). AXI-L no longer describes full ACE, so these come from AXI-Hc.
+
+| Where | Signals | Source | Meaning |
+|---|---|---|---|
+| AR | `ARSNOOP[3:0]`, `ARDOMAIN[1:0]`, `ARBAR[1:0]` | Manager | Transaction type for Shareable reads, shareability domain, barrier |
+| AW | `AWSNOOP[2:0]`, `AWDOMAIN[1:0]`, `AWBAR[1:0]`, `AWUNIQUE` | Manager | The same for writes; AWUNIQUE is needed only by components that support WriteEvict |
+| R | `RRESP[3:2]` | Interconnect | Extra read response bits (PassDirty, IsShared) |
+| AC (snoop request) | `ACVALID`, `ACREADY`, `ACADDR`, `ACSNOOP[3:0]`, `ACPROT[2:0]` | Interconnect (ACREADY: Manager) | Snoop address and type. "The ACE specification only assigns meaning to ACPROT[1]" |
+| CR (snoop response) | `CRVALID`, `CRREADY`, `CRRESP[4:0]` | Manager (CRREADY: interconnect) | Snoop response |
+| CD (snoop data) | `CDVALID`, `CDREADY`, `CDDATA`, `CDLAST` | Manager (CDREADY: interconnect) | Snoop data |
+| Acknowledge | `RACK`, `WACK` | Manager | The Manager has completed a read or write transaction |
+
+There are no extra signals on W or B (AXI-Hc §D2.1). AxDOMAIN encodes Non-shareable (0b00), Inner Shareable (0b01), Outer Shareable (0b10) and System (0b11), and "Use of the Inner Shareable domain is deprecated in ACE5 and ACE5-Lite" (AXI-Hc §D3.1, Table D3-2). During reset "A Manager interface must drive RACK, WACK, CRVALID, and CDVALID LOW" and "An interconnect must drive ACVALID LOW" (AXI-Hc §D2.3.3). See [ACE: AXI Coherency Extensions](ace-coherency-extensions.md) for the transactions and the RACK/WACK rules. The ACE5-Lite variants of AXI-L use a subset of these signals (AXI-L §B2.1).
+
 ## A transaction in brief
 
 ```
@@ -143,7 +168,7 @@ axi_bvalid_after: assert property (@(posedge ACLK) disable iff (!ARESETn)
 
 *Editor's note (not from the sources):* `axi_bvalid_after` and `axi_rvalid_after` compare totals, so they catch a response with nothing outstanding, but not a response with the wrong ID.
 
-Not covered: WLAST/RLAST beat counts, ID matching and ordering, exclusive-access rules, `Wrap_CLS_Modifiable`, credited transport and the optional AXI5 signal groups.
+Not covered: WLAST/RLAST beat counts, ID matching and ordering, exclusive-access rules, `Wrap_CLS_Modifiable`, credited transport, the optional AXI5 signal groups, and the ACE snoop channels and acknowledges.
 
 ## Versions
 

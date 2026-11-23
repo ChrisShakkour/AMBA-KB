@@ -15,14 +15,17 @@ A concept-organised wiki of Arm's AMBA on-chip interface protocols, written for 
 | [Protocol evolution and version differences](protocol-evolution-and-versions.md) | Timeline of every generation and issue, per-protocol change tables, and the register of all 71 disagreements |
 
 ### Interface hubs (one page per interface)
-Each hub lists every signal of one interface (width, source, which version or property enables it), a transfer in brief, a rules checklist with citations, and SystemVerilog protocol assertions. Every row links to the concept article that explains it.
+Each hub lists every signal of one interface (width, source, and which version or property enables it), a transfer in brief, a rules checklist with citations, and SystemVerilog protocol assertions. Every row links to the concept article that explains it. ATB, GFB, DTI and LTI are covered in their own articles ([Debug trace: ATB](debug-trace-atb.md), [Generic Flash Bus](generic-flash-bus.md), [DVM and address translation](dvm-and-address-translation.md)), which also carry assertions.
 
 | Article | One-line description |
 |---|---|
 | [APB interface hub](interface-apb.md) | All APB2–APB5 signals with version presence, the SETUP/ACCESS state machine, 10 key rules and APB assertions |
 | [AHB interface hub](interface-ahb.md) | All AHB-Lite/AHB5 signals with Manager/Subordinate presence and defaults, pipelining and the two-cycle ERROR, 12 key rules and Manager/Subordinate assertions |
 | [CHI interface hub](interface-chi.md) | Channels per node type, every link-layer signal (FLITPEND/FLITV/FLIT/LCRDV, Resource Planes, LINKACTIVE, SACTIVE, SYSCO), the four flit formats, 11 key rules and link-layer assertions |
-| [AXI interface hub](interface-axi.md) | The five channels' core signals, the optional AXI5 signal groups and their enabling properties, 10 key rules and AXI assertions |
+| [AXI interface hub](interface-axi.md) | The five channels' core signals, the optional AXI5 signal groups and their enabling properties, the AXI4-Lite profile, the ACE additions, 10 key rules and AXI assertions |
+| [AXI-Stream interface hub](interface-axi-stream.md) | All AXI4-/AXI5-Stream signals with presence and defaults, TKEEP/TSTRB byte types, 9 key rules and stream assertions |
+| [CXS interface hub](interface-cxs.md) | All CXS signals and properties, the four link states, credit and credit-return rules, and CXS assertions |
+| [Q-Channel and P-Channel interface hub](interface-q-p-channel.md) | Both low-power handshakes: signals, state tables, every transition rule and Q/P-Channel assertions |
 
 ### How data moves
 | Article | One-line description |

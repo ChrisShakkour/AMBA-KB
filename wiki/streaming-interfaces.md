@@ -92,6 +92,7 @@ AXIS-B §2.6 also says "An AXI-Stream packet is similar to an AXI burst".
 
 ## Related articles
 
+- [AXI-Stream interface hub](interface-axi-stream.md), [CXS interface hub](interface-cxs.md)
 - [Debug trace (ATB)](debug-trace-atb.md)
 - [Handshakes and flow control](handshakes-and-flow-control.md)
 - [Chiplets and chip-to-chip](chiplets-and-chip-to-chip.md)

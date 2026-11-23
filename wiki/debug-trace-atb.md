@@ -65,6 +65,31 @@ Source: ATB-C §1.1, Appendix B, and the change history (Issue A 19 June 2006, B
 - Gate trace-source clocks only after a completed flush (AFVALID→AFREADY). ATB-C §4.2: "Any trace remaining within buffers or FIFOs in trace sources must be output before powering down or stopping the clock. Therefore, the AFVALID signal signals a flush."
 - `ATWAKEUP` must be glitch-free and come directly from a register. A Receiver may wait for it before asserting ATREADY, so a present-but-never-asserted `ATWAKEUP` can deadlock the interface (ATB-C §6.2).
 
+## Protocol assertions
+
+SystemVerilog assertions for the ATB handshake, ID and flush rules. They come from `assertions/atb_gfb_checker.sv` (module `atb_checker`) in the [amba-kb-agent](https://github.com/ChrisShakkour/amba-kb-agent) repository, which also has a test for every assertion.
+
+**Status: syntax-checked and elaborated with slang 11. The Verilator tests have not been run yet.**
+
+| Assertion | Rule | Source |
+|---|---|---|
+| `atb_reset_valid_low` | "A trace source can only start driving ATVALID HIGH after ATRESETn has been HIGH at a rising edge of ATCLK" | ATB-C §3.2 |
+| `atb_hold` | "If ATREADY is LOW and ATVALID is HIGH on a cycle, ATVALID, ATDATA, ATID, and ATBYTES must retain the same value on the next cycle" | ATB-C §3.2 |
+| `atb_id_reserved` | No reserved ATID (0x00, 0x70–0x7C, 0x7E, 0x7F) on a valid transfer; 0x7D is the trigger ID | ATB-C §4.1 |
+| `atb_flush_not_cancelled` | "A flush sequence can not be canceled by a Receiver interface after it initiates": AFVALID stays HIGH until AFREADY | ATB-C §4.2 |
+
+```systemverilog
+// ATB-C §3.2: hold ATVALID, ATDATA, ATID and ATBYTES while ATREADY is LOW
+atb_hold: assert property (@(posedge ATCLK) disable iff (!ATRESETn)
+    (ATVALID && !ATREADY) |=> ATVALID && $stable({ATDATA, ATID, ATBYTES}));
+
+// ATB-C §4.1: reserved ATID values are never used for trace
+atb_id_reserved: assert property (@(posedge ATCLK) disable iff (!ATRESETn)
+    ATVALID |-> !((ATID == 7'h00) || (ATID >= 7'h70 && ATID <= 7'h7C) || (ATID >= 7'h7E)));
+```
+
+Not covered: the ATBYTES encoding, AFREADY timing ("one cycle after" the last flushed data), SYNCREQ and ATWAKEUP.
+
 ## Related articles
 
 - [Streaming interfaces](streaming-interfaces.md)

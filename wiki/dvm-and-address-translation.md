@@ -81,6 +81,19 @@ Arm cores generate a DVM Sync as a result of a **DSB** instruction (G-CHI §5).
   - `TLAST` marks the last transfer of a message and must be present.
   - `TID` gives the source on the downstream link and `TDEST` the destination on the upstream link. The spec recommends that a TBU does *not* drive them, and that the DTI interconnect adds `TID` bits ("There is only one TCU in the network").
 
+### DTI message summary (DTI-J §B2.1.2)
+
+DTI messages are fixed length, a whole number of bytes, and "The four least significant bits of every message are used to encode the message type". Downstream messages come from the Manager (TBU or PCIe root port, prefix M_), upstream messages from the Subordinate (TCU, prefix S_). Encodings 0xE and 0xF are IMPLEMENTATION DEFINED (DTI-J §B2.1.2).
+
+| Protocol | Direction | Message (type encoding, length in bits) | Source |
+|---|---|---|---|
+| DTI-TBU | Downstream (TBU → TCU) | `DTI_TBU_CONDIS_REQ` (0x0, 32), `DTI_TBU_TRANS_REQ` (0x2, 160), `DTI_TBU_INV_ACK` (0x4, 8), `DTI_TBU_SYNC_ACK` (0x5, 8), `DTI_TBU_REG_WACK` (0x6, 8), `DTI_TBU_REG_RDATA` (0x7, 64) | DTI-J Table B2.2 |
+| DTI-TBU | Upstream (TCU → TBU) | `DTI_TBU_CONDIS_ACK` (0x0, 32), `DTI_TBU_TRANS_FAULT` (0x1, 32), `DTI_TBU_TRANS_RESP` (0x2, 160), `DTI_TBU_TRANS_RESPEX` (0x3, 192), `DTI_TBU_INV_REQ` (0x4, 128), `DTI_TBU_SYNC_REQ` (0x5, 8), `DTI_TBU_REG_WRITE` (0x6, 64), `DTI_TBU_REG_READ` (0x7, 32) | DTI-J Table B2.3 |
+| DTI-ATS | Downstream (root port → TCU) | `DTI_ATS_CONDIS_REQ` (0x0, 32), `DTI_ATS_TRANS_REQ` (0x2, 160), `DTI_ATS_PAGE_REQ` (0x8, 128), `DTI_ATS_PAGE_RESPACK` (0x9, 8; DTI-ATSv2 or later), `DTI_ATS_INV_COMP` (0xB, 96; DTI-ATSv3 or later), `DTI_ATS_INV_ACK` (0xC, 8), `DTI_ATS_SYNC_ACK` (0xD, 8) | DTI-J Table B2.4 |
+| DTI-ATS | Upstream (TCU → root port) | `DTI_ATS_CONDIS_ACK` (0x0, 32), `DTI_ATS_TRANS_FAULT` (0x1, 32), `DTI_ATS_TRANS_RESP` (0x2, 160), `DTI_ATS_PAGE_ACK` (0x8, 8), `DTI_ATS_PAGE_RESP` (0x9, 96), `DTI_ATS_INV_REQ` (0xC, 128), `DTI_ATS_SYNC_REQ` (0xD, 8) | DTI-J Table B2.5 |
+
+The message groups are connection and disconnection (CONDIS), translation request (TRANS), invalidation and synchronization (INV, SYNC), page request (PAGE, DTI-ATS only) and register access (REG, DTI-TBU only) (DTI-J Table B2.1). Which messages are permitted in each channel state is given in DTI-J Table B2.6. Flow control uses tokens (DTI-J §B2.1.3).
+
 ## LTI: Local Translation Interface (LTI-E)
 
 - **What it is**: a point-to-point protocol between an **IO Manager** and a **TBU**. "LTI enables devices to directly request a translation for each transaction while leaving the TBU to manage the Translation Lookaside Buffer (TLB). This enables translations to be requested before ordering requirements are met, avoiding the need to pass transactions through the TBU" (LTI-E §B1.1).
@@ -102,6 +115,33 @@ Arm cores generate a DVM Sync as a result of a **DSB** instruction (G-CHI §5).
 - **Translation flows**: Stall, ATST (PCIe ATS-translated), NoStall and PRI (LTI-E §B1.4).
   - "Stall flow is the most common flow for LTI Managers".
   - Stall is "not recommended for use with PCIe, because of dependencies between outgoing transactions to PCIe from a CPU, and incoming transactions from PCIe through the SMMU".
+
+### LTI channels and interface states (LTI-E ch. B2, B8)
+
+| Channel | Prefix | TX | RX |
+|---|---|---|---|
+| LTI request | LA | Manager | Subordinate |
+| LTI response | LR | Subordinate | Manager |
+| LTI completion | LC | Manager | Subordinate |
+| LTI tag | LT | Subordinate | Manager |
+
+Interface management signals use the prefix LM: `LMOPENREQ` and `LMACTIVE` from the Manager, `LMOPENACK` and `LMASKCLOSE` from the Subordinate (LTI-E Table B2.1, §B8). "A complete LTI transaction consists of a message on all three channels in sequence": request on LA, response on LR, completion on LC (LTI-E §B2.1).
+
+- **Credits** (LTI-E §B2.3): each channel has `LxVALID` and `LxCREDIT`, plus `LxVC` on LA and LR when there is more than one Virtual Channel. Each cycle with `LxCREDIT[n]` HIGH grants one credit on VC n, each `LxVALID` uses one, and "The maximum number of credits that the RX channel can grant the TX channel for each VC is 15". There must be no combinatorial paths between `LxCREDIT` and other channel signals.
+- **Interface states** (LTI-E §B8.2): (`LMOPENREQ`, `LMOPENACK`) = ST_CLOSED 00, ST_OPENING 10, ST_OPEN 11, ST_CLOSING 01. "LMOPENREQ can transition from LOW to HIGH only if LMOPENACK is LOW", it falls only if LMOPENACK is HIGH, and LMOPENACK rises only while LMOPENREQ is HIGH and falls only while it is LOW. "Upon reset, the LTI interface is in state ST_CLOSED."
+- **What each state allows** (LTI-E §B8.3): new LA requests only in ST_OPEN; LAVALID and LCVALID LOW whenever LMOPENREQ is LOW; LACREDIT, LCCREDIT and LTVALID LOW whenever LMOPENACK is LOW; LRCREDIT and LTCREDIT only in ST_OPEN. "All credits on all channels are lost when in state ST_CLOSED."
+- **Reset** (LTI-E §B9.1): "On the first rising edge of CLK where RESETn is HIGH", all LxVALID, LxCREDIT, LMOPENREQ, LMOPENACK and LMASKCLOSE must be 0.
+
+**Protocol assertions.** `assertions/lti_checker.sv` in the [amba-kb-agent](https://github.com/ChrisShakkour/amba-kb-agent) repository checks the credit rules (one Virtual Channel per channel), the four state-transition rules, the state-dependent signal rules and the reset rule, with a test for every assertion. **Status: syntax-checked and elaborated with slang 11; the Verilator tests have not been run yet.**
+
+```systemverilog
+// LTI-E §B8.2: "LMOPENREQ can transition from LOW to HIGH only if LMOPENACK is LOW."
+lti_openreq_rise: assert property (@(posedge CLK) disable iff (!RESETn)
+    (LMOPENREQ && !$past(LMOPENREQ)) |-> !$past(LMOPENACK));
+// LTI-E §B8.3: LRCREDIT and LTCREDIT only in ST_OPEN
+lti_lr_lt_credit_need_open: assert property (@(posedge CLK) disable iff (!RESETn)
+    (LRCREDIT || LTCREDIT) |-> (LMOPENREQ && LMOPENACK));
+```
 
 ## Untranslated transactions (AXI5)
 

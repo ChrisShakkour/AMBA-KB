@@ -61,6 +61,42 @@ No substantive disagreements were found between GFB-A, GFB-Ab and G-SYS. Issue A
 - Keep `FWDATA` stable for the whole (possibly very long) data phase of a WRITE: "The Manager must keep FWDATA stable through this period" (GFB-Ab §3.2).
 - FABORT may be asserted only while a non-IDLE command is ongoing, and must stay HIGH while FREADY is LOW. The Subordinate may ignore the request, or accept it and give an error response. An abort raised in the same cycle as FREADY HIGH is ignored (GFB-Ab §3.3). *Editor's note (not from the sources): what an aborted ERASE leaves in the Flash array is macro-specific, so check the Flash macro documentation.*
 
+## Protocol assertions
+
+SystemVerilog assertions for the rules in GFB-Ab §3.3. They come from `assertions/atb_gfb_checker.sv` (module `gfb_checker`) in the [amba-kb-agent](https://github.com/ChrisShakkour/amba-kb-agent) repository, which also has a test for every assertion. The checker tracks the *ongoing* command: the one accepted at the last edge where FREADY was HIGH ("A command is then ongoing until the next cycle when FREADY is HIGH", GFB-Ab §3.3).
+
+**Status: syntax-checked and elaborated with slang 11. The Verilator tests have not been run yet.**
+
+| Assertion | Rule | Source |
+|---|---|---|
+| `gfb_reset` | During reset FCMD is IDLE, and FABORT, FREADY and FRESP are LOW | GFB-Ab §3.3.3 |
+| `gfb_cmd_legal` | FCMD is never 0b101 or 0b110 | GFB-Ab §3.3, Table 2-1 |
+| `gfb_cmd_stable` | A non-IDLE FCMD, and FADDR, do not change while FREADY and FRESP are LOW | GFB-Ab §3.3 |
+| `gfb_wdata_stable` | Active FWDATA does not change while FREADY and FRESP are LOW | GFB-Ab §3.3 |
+| `gfb_addr_aligned` | FADDR aligned to the read data width for READ, and to the write data width for WRITE and ROW WRITE | GFB-Ab §3.3 |
+| `gfb_error_two_cycle` | "If FRESP is HIGH and FREADY is LOW, then FRESP must be HIGH and FREADY must be HIGH in the next cycle" | GFB-Ab §3.3 |
+| `gfb_resp_needs_cmd` | "FRESP can only be asserted if there is an ongoing non-IDLE command" | GFB-Ab §3.3 |
+| `gfb_abort_needs_cmd`, `gfb_abort_held` | FABORT only during an ongoing non-IDLE command, and held while FREADY is LOW | GFB-Ab §3.3 |
+
+```systemverilog
+// GFB-Ab §3.3: command accepted when FREADY is HIGH, ongoing until the next FREADY HIGH
+always_ff @(posedge FCLK)
+  if (!FRESETn)    ongoing <= IDLE;
+  else if (FREADY) ongoing <= FCMD;
+
+// GFB-Ab §3.3: hold the command and address while waiting
+gfb_cmd_stable: assert property (@(posedge FCLK) disable iff (!FRESETn)
+    ((FCMD != IDLE) && !FREADY && !FRESP) |=> $stable(FCMD) && $stable(FADDR));
+
+// GFB-Ab §3.3: a two-cycle error response, only for an ongoing command
+gfb_error_two_cycle: assert property (@(posedge FCLK) disable iff (!FRESETn)
+    (FRESP && !FREADY) |=> (FRESP && FREADY));
+gfb_resp_needs_cmd: assert property (@(posedge FCLK) disable iff (!FRESETn)
+    FRESP |-> (ongoing != IDLE));
+```
+
+Not covered: FRDATA and FWDATA legality, housekeeping, and which commands a Subordinate supports.
+
 ## Related articles
 
 - [Transfer phases and pipelining](transfer-phases-and-pipelining.md)

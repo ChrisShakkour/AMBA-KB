@@ -97,6 +97,7 @@ Common rules (APB-E §3.7; AXI-L §A14.1; AXIS-B §2.3):
 
 ## Related articles
 
+- [Q-Channel and P-Channel interface hub](interface-q-p-channel.md), [CHI interface hub](interface-chi.md), [CXS interface hub](interface-cxs.md)
 - [Handshakes and flow control](handshakes-and-flow-control.md)
 - [CHI architecture](chi-architecture.md)
 - [Streaming interfaces](streaming-interfaces.md) (CXS activation)
