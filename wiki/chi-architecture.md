@@ -193,6 +193,7 @@ Covered in detail in the related articles:
 
 ## Related articles
 
+- [CHI interface hub](interface-chi.md)
 - [Networks-on-chip (NoC)](networks-on-chip.md)
 - [Cache coherency fundamentals](cache-coherency-fundamentals.md)
 - [ACE coherency extensions](ace-coherency-extensions.md)

@@ -160,6 +160,7 @@ AXI3 (Issue B, 2004) → AXI4 and AXI4-Lite (Issue C, 2010: 256-beat INCR, no WI
 - [ACE: AXI Coherency Extensions](ace-coherency-extensions.md)
 - [APB interface hub](interface-apb.md)
 - [AHB interface hub](interface-ahb.md)
+- [CHI interface hub](interface-chi.md)
 
 ## Sources
 
